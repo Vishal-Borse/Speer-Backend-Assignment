@@ -29,7 +29,7 @@ This project involves the development of a secure and scalable RESTful API that 
    cd speer-assignment
    ```
 
-3.Install dependencies:
+3. Install dependencies:
 
    ```bash
    npm install
@@ -41,6 +41,24 @@ This project involves the development of a secure and scalable RESTful API that 
    MONGODB_URI=your_mongodb_connection_string
    SECRET_KEY=your_secret_key_for_jwt
    ```
+### Run the Application
+
+   To start the server in development mode with automatic code reloading, you can run:
+   ```bash
+   npm run dev
+   ```
+   To start the server in production mode, you can run:
+   ```bash
+   npm start
+   ```
+The server will start at http://localhost:5000.
+
+### Run the Tests
+   ```bash
+   npm test
+   ```
+This will run the unit and integration tests.
+
 
 ## Caching Mechanism
 
