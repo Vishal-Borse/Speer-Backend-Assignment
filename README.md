@@ -2,37 +2,45 @@
 
 ## Project overview
 This project involves the development of a secure and scalable RESTful API that enables users to manage notes. Users can perform operations like creating, reading, updating, and deleting notes. Additionally, the application supports note sharing among users and includes a search functionality based on keywords.
-## Getting Started
 
-To get started with this application, follow these steps:
+##Technical Stack
+-Framework: Express.js (Node.js)
+-Database: MongoDB
+-Authentication: JSON Web Token (JWT)
+-Rate Limiting: express-rate-limit
+-Testing Frameworks: Mocha and Chai
+-Search Indexing: MongoDB Text Indexing
 
-1. Clone this repository to your local machine:
+##Setup
+###Prerequisites
+-Node.js (https://nodejs.org/)
+-MongoDB (https://www.mongodb.com/try/download/community)
+
+###Installation
+1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Vishal-Borse/SubSpace_Assignment.git
+   git clone https://github.com/Vishal-Borse/Speer-Backend-Assignment.git
    ```
 
-2. Install the required dependencies:
+2. Navigate to the project directory:
 
    ```bash
+   cd speer-assignment
+   ```
+
+3.Install dependencies:
+
+   ```
    npm install
    ```
 
-3. Create a `.env` file in the root directory and add your environment variables,`HASURA_ADMIN_SECRET`.
+4. Create a .env file in the root directory and add the following:
 
-   ```
-   HASURA_ADMIN_SECRET=your-secret-key
-   ```
-
-4. Start the Express server:
-
-   To start the server in development mode with automatic code reloading, you can run:
    ```bash
-   npm run dev
-   ```
-   To start the server in production mode, you can run:
-   ```bash
-   npm start
+   MONGODB_URI=your_mongodb_connection_string
+   SECRET_KEY=your_secret_key_for_jwt
+
    ```
 
 ## Caching Mechanism
