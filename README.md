@@ -78,35 +78,6 @@ This will run the unit and integration tests.
 - `POST /api/notes/:id/share`: share a note with another user for the authenticated user.
 - `GET /api/search?q=:query`: search for notes based on keywords for the authenticated user.
 
-
-## Error Handling
-
-The server handles various types of errors:
-
-- HTTP response errors (e.g., 404, 401): Proper error responses are sent to the client with relevant error messages.
-
-- Timeout errors: If a request times out, a 504 Gateway Timeout error is returned.
-
-- Other types of errors: Internal server errors (500) are returned for other types of errors, and error messages are logged to the console.
-
-## Usage
-
-You can use this Express server to fetch blog statistics and perform blog searches by making HTTP GET requests to the specified API endpoints.
-
-Example usage:
-
-- Fetch blog statistics:
-
-  ```http
-  GET /api/blog-stats
-  ```
-
-- Perform a blog search:
-
-  ```http
-  GET /api/blog-search?query=your_query_here
-  ```
-
 ## Contributing
 
 Contributions are welcome! If you'd like to contribute to this project, please follow the [contribution guidelines](CONTRIBUTING.md).
