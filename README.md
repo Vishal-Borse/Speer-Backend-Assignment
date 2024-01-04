@@ -3,20 +3,20 @@
 ## Project overview
 This project involves the development of a secure and scalable RESTful API that enables users to manage notes. Users can perform operations like creating, reading, updating, and deleting notes. Additionally, the application supports note sharing among users and includes a search functionality based on keywords.
 
-##Technical Stack
--Framework: Express.js (Node.js)
--Database: MongoDB
--Authentication: JSON Web Token (JWT)
--Rate Limiting: express-rate-limit
--Testing Frameworks: Mocha and Chai
--Search Indexing: MongoDB Text Indexing
+## Technical Stack
+- **Framework:** Express.js (Node.js)
+- **Database:** MongoDB
+- **Authentication:** JSON Web Token (JWT)
+- **Rate Limiting:** express-rate-limit
+- **Testing Frameworks**: Jest
+- **Search Indexing:** MongoDB Text Indexing
 
-##Setup
-###Prerequisites
--Node.js (https://nodejs.org/)
--MongoDB (https://www.mongodb.com/try/download/community)
+## Setup
+### Prerequisites
+- Node.js (https://nodejs.org/)
+- MongoDB (https://www.mongodb.com/try/download/community)
 
-###Installation
+### Installation
 1. Clone the repository:
 
    ```bash
@@ -31,7 +31,7 @@ This project involves the development of a secure and scalable RESTful API that 
 
 3.Install dependencies:
 
-   ```
+   ```bash
    npm install
    ```
 
@@ -40,7 +40,6 @@ This project involves the development of a secure and scalable RESTful API that 
    ```bash
    MONGODB_URI=your_mongodb_connection_string
    SECRET_KEY=your_secret_key_for_jwt
-
    ```
 
 ## Caching Mechanism
