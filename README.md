@@ -41,12 +41,14 @@ This project involves the development of a secure and scalable RESTful API that 
    MONGODB_URI=your_mongodb_connection_string
    SECRET_KEY=your_secret_key_for_jwt
    ```
+   
 ### Run the Application
 
    To start the server in development mode with automatic code reloading, you can run:
    ```bash
    npm run dev
    ```
+
    To start the server in production mode, you can run:
    ```bash
    npm start
@@ -54,23 +56,28 @@ This project involves the development of a secure and scalable RESTful API that 
 The server will start at http://localhost:5000.
 
 ### Run the Tests
+
    ```bash
    npm test
    ```
 This will run the unit and integration tests.
 
 
-## Caching Mechanism
-
-This application uses Lodash's `_.memoize` function for caching the results of blog statistics and blog searches. The cache is cleared automatically every 20 seconds to ensure that the data remains up-to-date.
-
 ## API Endpoints
 
-The server exposes the following API endpoints:
+### Authentication Endpoints
+- `POST /api/auth/signup`: create a new user account..
+- `POST /api/auth/login`: log in to an existing user account and receive an access token.
 
-- `GET /api/blog-stats`: Retrieves blog statistics, including the total number of blogs, the title of the longest blog, the number of blogs with "privacy" in their title, and unique blog titles. Lodash is used for data analysis in this endpoint.
+### Note Endpoints
+- `GET /api/notes`: get a list of all notes for the authenticated user.
+- `GET /api/notes`: get a note by ID for the authenticated user.
+- `POST /api/notes`: create a new note for the authenticated user.
+- `PUT /api/notes/:id`: update an existing note by ID for the authenticated user.
+- `DELETE /api/notes/:id`: delete a note by ID for the authenticated user.
+- `POST /api/notes/:id/share`: share a note with another user for the authenticated user.
+- `GET /api/search?q=:query`: search for notes based on keywords for the authenticated user.
 
-- `GET /api/blog-search?query=your_query_here`: Performs a blog search based on a query parameter. It returns a list of blog titles that match the query. Lodash is used for searching and data manipulation in this endpoint.
 
 ## Error Handling
 
