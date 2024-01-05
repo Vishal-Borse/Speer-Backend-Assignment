@@ -83,6 +83,7 @@ This will run the unit and integration tests.
 ## API Endpoints
 
 ### Authentication Endpoints
+<<<<<<< Updated upstream
 
 #### Signup
 
@@ -168,11 +169,24 @@ This will run the unit and integration tests.
 ```http
   DELETE /api/notes/:id
 ```
+=======
+- `POST /api/auth/signup`: create a new user account..
+- `POST /api/auth/login`: log in to an existing user account and receive an access token.
 
+### Note Endpoints
+- `GET /api/notes`: get a list of all notes for the authenticated user.
+- `GET /api/notes`: get a note by ID for the authenticated user.
+- `POST /api/notes`: create a new note for the authenticated user.
+- `PUT /api/notes/:id`: update an existing note by ID for the authenticated user.
+- `DELETE /api/notes/:id`: delete a note by ID for the authenticated user.
+- `POST /api/notes/:id/share`: share a note with another user for the authenticated user.
+- `GET /api/search?q=:query`: search for notes based on keywords for the authenticated user.
+>>>>>>> Stashed changes
 
+## Contributing
 
-## 🔗 Links
+Contributions are welcome! If you'd like to contribute to this project, please follow the [contribution guidelines](CONTRIBUTING.md).
 
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vishal-borse-971241212/)
+## License
 
-
+This project is licensed under the [MIT License](LICENSE).

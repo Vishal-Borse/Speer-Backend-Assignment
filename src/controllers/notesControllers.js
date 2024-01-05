@@ -86,7 +86,7 @@ const getNoteById = async (req, res) => {
     const note = await noteModel.findOne({
       $and: [
         { $or: [{ userId: req.userId }, { sharedWith: req.userId }] },
-        { _id: noteId }, // Assuming you are querying by noteId
+        { _id: noteId },
       ],
     });
     if (!note) {
