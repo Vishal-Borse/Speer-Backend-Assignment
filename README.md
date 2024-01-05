@@ -77,17 +77,44 @@ This will run the unit and integration tests.
 ## API Endpoints
 
 ### Authentication Endpoints
-- `POST /api/auth/signup`: create a new user account..
+- `POST /api/auth/signup`: create a new user account.
+| Body          | Type     | Description                    |
+| :------------ | :------- | :----------------------------- |
+| `username`    | `string` | **Required**. Your Username    |
+| `email`       | `string` | **Required**. Your Email       |
+| `password`    | `string` | **Required**. New Password     |
+
 - `POST /api/auth/login`: log in to an existing user account and receive an access token.
+| Body       | Type     | Description                |
+| :--------- | :------- | :------------------------- |
+| `email  `  | `string` | **Required**. Your Email   |
+| `password` | `string` | **Required**. New Password |
+
 
 ### Note Endpoints
 - `GET /api/notes`: get a list of all notes for the authenticated user.
 - `GET /api/notes`: get a note by ID for the authenticated user.
 - `POST /api/notes`: create a new note for the authenticated user.
+| Body          | Type     | Description                     |
+| :------------ | :------- | :------------------------------ |
+| `title`       | `string` | **Required**. Title of the note |
+| `description` | `string` | Description of the note         |
+
 - `PUT /api/notes/:id`: update an existing note by ID for the authenticated user.
+| Body          | Type     | Description             |
+| :------------ | :------- | :---------------------- |
+| `title`       | `string` | Title of the note       |
+| `description` | `string` | Description of the note |
+
 - `DELETE /api/notes/:id`: delete a note by ID for the authenticated user.
 - `POST /api/notes/:id/share`: share a note with another user for the authenticated user.
+| Body          | Type     | Description                                        |
+| :------------ | :------- | :------------------------------------------------- |
+| `shareUserId` | `string` | **Required**. Email of the user to share the note. |
 - `GET /api/search?q=:query`: search for notes based on keywords for the authenticated user.
+| Query | Type     | Description                          |
+| :---- | :------- | :----------------------------------- |
+| `q`   | `string` | **Required**. Keyword for searching. |
 
 ## Contributing
 
