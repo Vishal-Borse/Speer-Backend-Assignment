@@ -75,20 +75,13 @@ This will run the unit and integration tests.
 
 
 ## API Endpoints
+
+### Authentication Endpoints
+
 ```http
   POST /api/auth/signup
 ```
-- `POST /api/auth/signup`: create a new user account.
-
-| Body        | Type     | Description                    |
-| :---------- | :------- | :----------------------------- |
-| `username`  | `string` | **Required**. Your Username    |
-| `email`     | `string` | **Required**. Your Email       |
-| `password`  | `string` | **Required**. New Password     |
-
-### Authentication Endpoints
-- `POST /api/auth/signup`: create a new user account.
-
+ create a new user account.
 
 | Body          | Type     | Description                    |
 | :------------ | :------- | :----------------------------- |
