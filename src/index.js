@@ -3,6 +3,7 @@ const app = express();
 const authRouter = require("./routes/authRoutes");
 const noteRouter = require("./routes/notesRoutes");
 const mongoose = require("mongoose");
+require('dotenv').config();
 app.use(express.json());
 
 app.use("/api/auth", authRouter);
@@ -13,9 +14,7 @@ app.get("/", (req, res) => {
 });
 
 mongoose
-  .connect(
-    process.env.MONGODB_URI
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     app.listen(5000, () => {
       console.log("Server running at http://localhost:5000");

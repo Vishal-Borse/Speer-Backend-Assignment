@@ -5,18 +5,33 @@ const mongoose = require("mongoose");
 const createNote = async (req, res) => {
   const { title, description } = req.body;
 
-  const newNote = new noteModel({
-    title: title,
-    description: description,
-    userId: req.userId,
-  });
   try {
+    // Check if the title and description are provided
+    if (!title || !description) {
+      return res.status(400).json({
+        message: "Title and description are required",
+      });
+    }
+
+    // Create a new note with the provided data and user ID
+    const newNote = new noteModel({
+      title: title,
+      description: description,
+      userId: req.userId,
+    });
+
+    // Save the new note to the database
     await newNote.save();
+
     res.status(201).json({
-      newNote: newNote,
+      newNote: {
+        id: newNote._id,
+        title: newNote.title,
+        description: newNote.description,
+        userId: newNote.userId,
+      },
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json({
       message: "Something went wrong",
     });
@@ -28,7 +43,6 @@ const deleteNote = async (req, res) => {
     const note = await noteModel.findByIdAndDelete(noteId);
     res.status(202).json(note);
   } catch (error) {
-    console.log(error);
     res.status(500).json({
       message: "Something went wrong",
     });
@@ -46,7 +60,6 @@ const updateNote = async (req, res) => {
     await noteModel.findByIdAndUpdate(noteId, newNote, { new: true });
     res.status(200).json(newNote);
   } catch (error) {
-    console.log(error);
     res.status(500).json({
       message: "Something went wrong",
     });
@@ -62,7 +75,6 @@ const getNotes = async (req, res) => {
       NotesSharedWithYou: sharedNotes,
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json({
       message: "Something went wrong",
     });
@@ -82,7 +94,6 @@ const getNoteById = async (req, res) => {
     }
     res.status(200).json(note);
   } catch (error) {
-    console.log(error);
     res.status(500).json({
       message: "Something went wrong",
     });
@@ -92,9 +103,9 @@ const shareNote = async (req, res) => {
   const { sharedUserId } = req.body;
   const noteId = req.params.id;
   try {
-    // if (!mongoose.Types.ObjectId.isValid(sharedUserId)) {
-    //   return res.status(400).json({ error: "Invalid sharedUserId format" });
-    // }
+    if (!mongoose.Types.ObjectId.isValid(sharedUserId)) {
+      return res.status(400).json({ error: "Invalid sharedUserId format" });
+    }
     // Ensure the shared user exists
     const sharedUser = await userModel.findOne({ _id: sharedUserId });
     console.log(sharedUser);
@@ -126,11 +137,9 @@ const shareNote = async (req, res) => {
       message: "Note shared successfully",
     });
   } catch (error) {
-    console.log(error);
     res.status(500).json({ error: "Something went wrong" });
   }
 };
-
 const searchNotes = async (req, res) => {
   const query = req.query.q;
   try {
@@ -140,10 +149,8 @@ const searchNotes = async (req, res) => {
         { $text: { $search: query } }, // Text search on indexed fields
       ],
     });
-
     res.json({ notes: searchResult });
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 };

@@ -116,10 +116,10 @@ This will run the unit and integration tests.
 | :---- | :------- | :----------------------------------- |
 | `q`   | `string` | **Required**. Keyword for searching. |
 
-## Contributing
 
-Contributions are welcome! If you'd like to contribute to this project, please follow the [contribution guidelines](CONTRIBUTING.md).
 
-## License
+## 🔗 Links
 
-This project is licensed under the [MIT License](LICENSE).
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/vishal-borse-971241212/)
+
+
